@@ -2,7 +2,9 @@ package orientalClinic.view;
 
 import java.util.Scanner;
 
+import orientalClinic.model.Calendar_Rez;
 import orientalClinic.model.Cart;
+import orientalClinic.model.Customer;
 import orientalClinic.model.HerbologyStorage;
 
 public class ConsoleView {
@@ -161,6 +163,43 @@ public class ConsoleView {
 	
 	
 	//----------------------------PartUserMethodSectionStart-------------------------------------
+	
+	public void inputCustomerInfo(Customer customer) {
+		Scanner input = new Scanner(System.in);
+		showMessage("한의원 이용일 위해 이름과 전화번호를 입력하세요. ");
+		showMessage(">> 이름 : ");
+		customer.setName(input.nextLine());
+		showMessage(">> 전화번호 : ");
+		customer.setPhone(input.nextLine());
+	}
+	
+	public void displayOrder(Cart mCart, Customer customer) {
+		showMessage("***** 주문할 한약 *****");
+		displayCart(mCart);
+		
+		//배송정보
+		showMessage("***** 배송 정보 ******");
+		showMessage(">> 이름 : " + customer.getName());
+		showMessage(">> 전화번호 : " + customer.getPhone());
+		showMessage(">> 이메일 : " + customer.getEmail());
+		showMessage(">> 주소 : " + customer.getAddress());
+		System.out.println();
+	}
+	
+	public void inputDeliveryInfo(Customer customer) {//
+		if (customer.getEmail() == null) {
+			Scanner input = new Scanner(System.in);
+			System.out.println("배송을 위하여 이메일 주소와 배송받을 곳의 주소를 입력받습니다.");
+			System.out.print(">> 이메일 : ");
+			customer.setEmail(input.nextLine());
+			System.out.print(">> 주소 : ");
+			customer.setAddress(input.nextLine());
+		}
+	}
+	
+	public void displayRez(Calendar_Rez mCalendar) {
+		
+	}
 	
 	//----------------------------PartUserMethodSectionEnd---------------------------------------
 }
