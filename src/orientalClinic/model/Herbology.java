@@ -1,11 +1,14 @@
 package orientalClinic.model;
 
 public class Herbology {
+	
+	//---------------------------------HerbologyFieldSectionStart------------------------------
+	
 	private int herbId;
 	private String name;
 	private String origin;
 	private int price;
-	private int inStock;
+//	private int inStock;
 	
 	public Herbology(int herbId, String name, String origin, int price) {
 		this.herbId = herbId;
@@ -14,12 +17,12 @@ public class Herbology {
 		this.price = price;
 	}
 	
-	@Override
-	public String toString() {
-		return herbId + ", " + name + ", " + origin + ", " + price + "원";
-	}
+	//---------------------------------HerbologyFieldSectionEnd---------------------------------
 	
 	
+	
+	//---------------------------------GetterSectionStart---------------------------------------
+		
 	public int getHerbId() {
 		return herbId;
 	}
@@ -35,5 +38,17 @@ public class Herbology {
 	public int getPrice() {
 		return price;
 	}
-
+	
+	//---------------------------------GetterSectionEnd----------------------------------------
+	
+	
+	//---------------------------------OtherMethodSectionStart----------------------------------
+	
+	@Override
+	public String toString() {
+		return herbId + ", " + name + ", " + origin + ", " + price + "원";
+	}
+	
+	//---------------------------------OtherMethodSectionEnd------------------------------------
+	
 }

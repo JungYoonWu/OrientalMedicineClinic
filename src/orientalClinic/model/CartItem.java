@@ -1,14 +1,26 @@
 package orientalClinic.model;
 
 public class CartItem {
+	
+	//---------------------------------CartItemFieldSectionStart---------------------------------
+	
 	private Herbology herb;
+	int herbId;
 	private int quantity;
 	
+	// CartItem Constructor
 	public CartItem(Herbology herb) {
 		this.herb = herb;
+		this.herbId = herb.getHerbId();
 		this.quantity = 1;
 	}
 
+	//---------------------------------CartItemFieldSectionEnd-----------------------------------
+	
+	
+	
+	//---------------------------------GetterSectionStart----------------------------------------
+	
 	public Herbology getHerb() {
 		return herb;
 	}
@@ -23,11 +35,16 @@ public class CartItem {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}	
+	
+	public int getPrice() {
+		return this.quantity * herb.getPrice();
 	}
 	
-	public void addQuantity(int quantity) {
-		this.quantity += quantity;
-	}
+	//---------------------------------GetterSectionEnd------------------------------------------
+	
+	
+	//---------------------------------OtherMethodSectionStart-----------------------------------
 	
 	@Override
 	public String toString() {
@@ -35,7 +52,9 @@ public class CartItem {
 				", " + quantity + "개, " + herb.getPrice() + "원";
 	}
 	
-	public int getPrice() {
-		return this.quantity * herb.getPrice();
+	public void addQuantity(int quantity) {
+		this.quantity += quantity;
 	}
+	
+	//---------------------------------OtherMethodSectionEnd-------------------------------------
 }

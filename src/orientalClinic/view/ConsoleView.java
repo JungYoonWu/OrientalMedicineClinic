@@ -48,6 +48,20 @@ public class ConsoleView {
 		return input.nextLine();
 	}
 	
+	public int readNumber(String message) {
+		if (message != null || !message.equals(""))
+			System.out.print(message);
+		
+		Scanner input = new Scanner(System.in);
+		try {
+			int number = input.nextInt();
+			return number;
+		} catch (Exception e) {
+			System.out.print("숫자를 입력하세요 :");
+			return readNumber(message);
+		}
+	}
+	
 	//----------------------------CommonMethodSectionEnd----------------------------------------
 
 	
